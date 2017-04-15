@@ -1,6 +1,6 @@
 {
-  "name": "Parse Server Example",
-  "description": "An example Parse API server using the parse-server module",
+  "name": "ParseServer",
+  "description": "A Parse API server using the PhotoShot app parse-server",
   "repository": "https://github.com/ParsePlatform/parse-server-example",
   "logo": "https://avatars0.githubusercontent.com/u/1294580?v=3&s=200",
   "keywords": ["node", "express", "parse"],
@@ -11,15 +11,15 @@
     },
     "APP_ID": {
       "description": "A unique identifier for your app.",
-      "value": "myAppId"
+      "value": "affinitize-parse-server"
     },
     "MASTER_KEY": {
       "description": "A key that overrides all permissions. Keep this secret.",
-      "value": "myMasterKey"
+      "value": "masterKey234"
     },
     "SERVER_URL": {
       "description": "URL to connect to your Heroku instance (update with your app's name + PARSE_MOUNT)",
-      "value": "http://yourappname.herokuapp.com/parse"
+      "value": "http://affinitize-parse-server.herokuapp.com/parse/"
     }
   },
   "image": "heroku/nodejs",

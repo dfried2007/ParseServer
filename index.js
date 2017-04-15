@@ -12,10 +12,10 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://mongolab-spherical-25892',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'com-codepath-photospot',
-  masterKey: process.env.MASTER_KEY || 'masterKey234', //Add your master key here. Keep it secret!
+  appId: process.env.APP_ID || 'affinitize-parse-server',
+  masterKey: process.env.MASTER_KEY || 'masterKey234' /*+117*2*/ , //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://com-codepath-photospot.herokuapp.com/parse/',
   liveQuery: {
     classNames: ["PhotoDao"] // List of classes to support for query subscriptions
