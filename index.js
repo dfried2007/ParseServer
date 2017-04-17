@@ -1,8 +1,8 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
 
-var express = require('express');
-////var express = require('parse-server/node_modules/express');
+////var express = require('express');
+var express = require('parse-server/node_modules/express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
@@ -16,7 +16,7 @@ var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://mongolab-spherical-25892',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'affinitize-parse-server',
-  masterKey: process.env.MASTER_KEY || 'masterKey234' /*+117*2*/ , //Add your master key here. Keep it secret!
+  masterKey: process.env.MASTER_KEY || 'masterKey234', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://affinitize-parse-server.herokuapp.com/parse/',
   liveQuery: {
     classNames: ["PhotoDao"] // List of classes to support for query subscriptions
