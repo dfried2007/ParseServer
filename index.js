@@ -2,9 +2,9 @@
 // compatible API routes.
 
 var express = require('express');
-////var express = require('parse-server/node_modules/express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var Parse = require('parse/node').Parse;
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -13,13 +13,13 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://mongolab-spherical-25892',
+  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'affinitize-parse-server',
-  masterKey: process.env.MASTER_KEY || 'masterKey234', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://affinitize-parse-server.herokuapp.com/parse/',
+  appId: process.env.APP_ID || 'myAppId',
+  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ["PhotoDao"] // List of classes to support for query subscriptions
+    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
@@ -37,7 +37,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a great website.  Please star the parse-server repo on GitHub!');
+  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
 });
 
 // There will be a test page available on the /test path of your server url
@@ -49,7 +49,7 @@ app.get('/test', function(req, res) {
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
-    console.log('affinitize-parse-server running on port ' + port + '.');
+    console.log('parse-server-example running on port ' + port + '.');
 });
 
 // This will enable the Live Query real-time server
